@@ -28,7 +28,7 @@ namespace CryptocurrencyProject.ModelViews
 
         private async Task LoadDataAsync()
         {
-            var data = await _apiService.GetTopCurrencies();
+            var data = await _apiService.GetTop10CurrenciesAsync();
             Data = new ObservableCollection<Currency>(data);
         }
     }

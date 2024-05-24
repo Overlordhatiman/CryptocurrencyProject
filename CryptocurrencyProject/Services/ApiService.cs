@@ -18,9 +18,9 @@ namespace CryptocurrencyProject.Services
             _httpClient = new HttpClient();
         }
 
-        public async Task<List<Currency>> GetTopCurrencies()
+        public async Task<List<Currency>> GetTop10CurrenciesAsync()
         {
-            var url = "https://api.coincap.io/v2/rates";
+            var url = "https://api.coincap.io/v2/assets?limit=10";
 
             using (HttpClient client = new HttpClient())
             {
