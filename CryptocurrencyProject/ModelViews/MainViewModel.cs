@@ -1,11 +1,9 @@
-﻿using CryptocurrencyProject.Models;
-using CryptocurrencyProject.Services;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using CryptocurrencyProject.Models;
+using CryptocurrencyProject.Services;
+using CryptocurrencyProject.Views;
 
 namespace CryptocurrencyProject.ModelViews
 {
@@ -13,6 +11,7 @@ namespace CryptocurrencyProject.ModelViews
     {
         private readonly ApiService _apiService;
         private ObservableCollection<Currency> _data;
+        private Currency _selectedCurrency;
 
         public ObservableCollection<Currency> Data
         {
@@ -20,16 +19,34 @@ namespace CryptocurrencyProject.ModelViews
             set { _data = value; OnPropertyChanged(); }
         }
 
+        public Currency SelectedCurrency
+        {
+            get { return _selectedCurrency; }
+            set { _selectedCurrency = value; OnPropertyChanged(); }
+        }
+
+        public ICommand ShowDetailsCommand { get; }
+
         public MainViewModel()
         {
             _apiService = new ApiService();
+            ShowDetailsCommand = new RelayCommand(ShowDetails);
             LoadDataAsync();
         }
 
         private async Task LoadDataAsync()
         {
-            var data = await _apiService.GetTop10CurrenciesAsync();
+            var data = await _apiService.GetTopNCurrenciesAsync();
             Data = new ObservableCollection<Currency>(data);
+        }
+
+        private void ShowDetails(object obj)
+        {
+            if (SelectedCurrency != null)
+            {
+                var detailsView = new DetailsView(SelectedCurrency);
+                detailsView.Show();
+            }
         }
     }
 }

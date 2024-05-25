@@ -1,0 +1,66 @@
+﻿<Window x:Class="CryptocurrencyProject.Views.DetailsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CryptocurrencyProject"
+        mc:Ignorable="d"
+        Title="DetailsView" Height="450" Width="1000">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="10">
+                <TextBlock Text="Currency Details" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                <TextBlock Text="ID:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding SelectedCurrency.id}" Margin="0,0,0,5"/>
+                <TextBlock Text="Symbol:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding SelectedCurrency.symbol}" Margin="0,0,0,5"/>
+                <TextBlock Text="Name:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding SelectedCurrency.name}" Margin="0,0,0,5"/>
+                <TextBlock Text="Price (USD):" FontWeight="Bold"/>
+                <TextBlock Text="{Binding SelectedCurrency.priceUsd}" Margin="0,0,0,5"/>
+                <TextBlock Text="Volume (24Hr):" FontWeight="Bold"/>
+                <TextBlock Text="{Binding SelectedCurrency.volumeUsd24Hr}" Margin="0,0,0,5"/>
+                <TextBlock Text="Change (24Hr %):" FontWeight="Bold"/>
+                <TextBlock Text="{Binding SelectedCurrency.changePercent24Hr}" Margin="0,0,0,5"/>
+                <TextBlock Text="Explorer:" FontWeight="Bold"/>
+                <TextBlock>
+                    <Hyperlink NavigateUri="{Binding SelectedCurrency.explorer}" RequestNavigate="Hyperlink_RequestNavigate">
+                        <TextBlock Text="{Binding SelectedCurrency.explorer}"/>
+                    </Hyperlink>
+                </TextBlock>
+
+                <TextBlock Text="Markets" FontWeight="Bold" FontSize="16" Margin="10,0,0,10"/>
+                <ListBox ItemsSource="{Binding SelectedCurrency.markets}" BorderThickness="1" BorderBrush="Black">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Exchange ID:" Grid.Column="0" Margin="5"/>
+                                <TextBlock Text="{Binding exchangeId}" Grid.Column="1" Margin="5"/>
+                                <TextBlock Text="Base Symbol:" Grid.Column="2" Margin="5"/>
+                                <TextBlock Text="{Binding baseSymbol}" Grid.Column="3" Margin="5"/>
+                                <TextBlock Text="Quote Symbol:" Grid.Column="4" Margin="5"/>
+                                <TextBlock Text="{Binding quoteSymbol}" Grid.Column="5" Margin="5"/>
+                                <TextBlock Text="Volume (USD):" Grid.Column="6" Margin="5"/>
+                                <TextBlock Text="{Binding volumeUsd24Hr}" Grid.Column="7" Margin="5"/>
+                                <TextBlock Text="Price (USD):" Grid.Column="8" Margin="5"/>
+                                <TextBlock Text="{Binding priceUsd}" Grid.Column="9" Margin="5"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

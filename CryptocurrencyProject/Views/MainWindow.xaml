@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox ItemsSource="{Binding Data}" BorderThickness="1" BorderBrush="Black">
+        <ListBox ItemsSource="{Binding Data}" BorderThickness="1" BorderBrush="Black" SelectedItem="{Binding SelectedCurrency}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -18,18 +18,19 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="ID:" Grid.Column="0" Grid.Row="1" FontWeight="Bold" Margin="5"/>
-                        <TextBlock Text="{Binding id}" Grid.Column="1" Grid.Row="1" Margin="5"/>
-                        <TextBlock Text="Rank:" FontWeight="Bold" Grid.Column="2" Grid.Row="1" Margin="5" />
-                        <TextBlock Text="{Binding rank}" Grid.Column="3" Grid.Row="1" Margin="5"/>
-                        <TextBlock Text="Name:" FontWeight="Bold" Grid.Column="4" Grid.Row="1" Margin="5"/>
-                        <TextBlock Text="{Binding name}" Grid.Column="5" Grid.Row="1" Margin="5"/>
+                        <TextBlock Text="ID:" Grid.Column="0" FontWeight="Bold" Margin="5"/>
+                        <TextBlock Text="{Binding id}" Grid.Column="1" Margin="5"/>
+                        <TextBlock Text="Rank:" FontWeight="Bold" Grid.Column="2" Margin="5" />
+                        <TextBlock Text="{Binding rank}" Grid.Column="3" Margin="5"/>
+                        <TextBlock Text="Name:" FontWeight="Bold" Grid.Column="4" Margin="5"/>
+                        <TextBlock Text="{Binding name}" Grid.Column="5" Margin="5"/>
+                        <Button Content="View Details" Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Grid.Column="6" Margin="5"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
