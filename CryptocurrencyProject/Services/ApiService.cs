@@ -73,5 +73,56 @@ namespace CryptocurrencyProject.Services
 
             return null;
         }
+
+        public async Task<Currency> SearchCurrencyByNameAsync(string partialName)
+        {
+            var url = "https://api.coincap.io/v2/assets";
+
+            try
+            {
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+                var root = JsonSerializer.Deserialize<RootObjectList<Currency>>(json);
+
+                var allCurrencies = root?.data;
+                if (allCurrencies == null)
+                    return null;
+
+                var closestMatch = allCurrencies
+                    .Where(c => c.id.Contains(partialName, StringComparison.OrdinalIgnoreCase))
+                    .OrderBy(c => c.id.Length)
+                    .FirstOrDefault();
+
+                return closestMatch;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
+        }
+
+        public async Task<List<OhlcPoint>> GetCandlestickDataAsync(string exchange, string interval, string baseId, string quoteId)
+        {
+            var url = $"https://api.coincap.io/v2/candles?exchange={exchange}&interval={interval}&baseId={baseId}&quoteId={quoteId}";
+
+            try
+            {
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+                var root = JsonSerializer.Deserialize<RootObjectList<OhlcPoint>>(json);
+
+                return root?.data ?? new List<OhlcPoint>();
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+                return new List<OhlcPoint>();
+        }
     }
 }

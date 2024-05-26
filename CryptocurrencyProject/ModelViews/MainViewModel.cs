@@ -12,6 +12,13 @@ namespace CryptocurrencyProject.ModelViews
         private readonly ApiService _apiService;
         private ObservableCollection<Currency> _data;
         private Currency _selectedCurrency;
+        private string _searchQuery;
+
+        public string SearchQuery
+        {
+            get { return _searchQuery; }
+            set { _searchQuery = value; OnPropertyChanged(); }
+        }
 
         public ObservableCollection<Currency> Data
         {
@@ -27,11 +34,39 @@ namespace CryptocurrencyProject.ModelViews
 
         public ICommand ShowDetailsCommand { get; }
 
+        public ICommand SearchCommand { get; }
+
+        public ICommand RefreshCommand { get; }
+
         public MainViewModel()
         {
             _apiService = new ApiService();
             ShowDetailsCommand = new RelayCommand(ShowDetails);
+            SearchCommand = new RelayCommand(SearchCurrency);
+            RefreshCommand = new RelayCommand(RefreshCurrencies);
             LoadDataAsync();
+        }
+
+        private async void RefreshCurrencies(object obj)
+        {
+            SearchQuery = string.Empty;
+            await LoadDataAsync();
+        }
+
+        private async void SearchCurrency(object obj)
+        {
+            if (!string.IsNullOrEmpty(SearchQuery))
+            {
+                var data = await _apiService.SearchCurrencyByNameAsync(SearchQuery);
+                if (data != null)
+                {
+                    Data = new ObservableCollection<Currency> { data };
+                }
+                else
+                {
+                    Data.Clear();
+                }
+            }
         }
 
         private async Task LoadDataAsync()
