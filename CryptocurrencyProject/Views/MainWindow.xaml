@@ -3,44 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CryptocurrencyProject"
+        xmlns:local="clr-namespace:CryptocurrencyProject" xmlns:local1="clr-namespace:CryptocurrencyProject.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Margin="10">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox Width="200" Margin="0,0,5,0" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Content="Search" Command="{Binding SearchCommand}" Width="75"/>
-                <Button Content="Refresh" Command="{Binding RefreshCommand}" Width="75"/>
-            </StackPanel>
-            <ListBox ItemsSource="{Binding Data}" BorderThickness="1" BorderBrush="Black" SelectedItem="{Binding SelectedCurrency}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="ID:" Grid.Column="0" FontWeight="Bold" Margin="5"/>
-                            <TextBlock Text="{Binding id}" Grid.Column="1" Margin="5"/>
-                            <TextBlock Text="Rank:" FontWeight="Bold" Grid.Column="2" Margin="5" />
-                            <TextBlock Text="{Binding rank}" Grid.Column="3" Margin="5"/>
-                            <TextBlock Text="Name:" FontWeight="Bold" Grid.Column="4" Margin="5"/>
-                            <TextBlock Text="{Binding name}" Grid.Column="5" Margin="5"/>
-                            <Button Content="View Details" Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Grid.Column="6" Margin="5"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </StackPanel>
+        <TabControl>
+            <TabItem Header="Currency List">
+                <StackPanel Margin="10">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <TextBox Width="200" Margin="0,0,5,0" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Button Content="Search" Command="{Binding SearchCommand}" Width="75"/>
+                        <Button Content="Refresh" Command="{Binding RefreshCommand}" Width="75"/>
+                    </StackPanel>
+                    <ListBox ItemsSource="{Binding Data}" BorderThickness="1" BorderBrush="Black" SelectedItem="{Binding SelectedCurrency}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="ID:" Grid.Column="0" FontWeight="Bold" Margin="5"/>
+                                    <TextBlock Text="{Binding id}" Grid.Column="1" Margin="5"/>
+                                    <TextBlock Text="Rank:" FontWeight="Bold" Grid.Column="2" Margin="5" />
+                                    <TextBlock Text="{Binding rank}" Grid.Column="3" Margin="5"/>
+                                    <TextBlock Text="Name:" FontWeight="Bold" Grid.Column="4" Margin="5"/>
+                                    <TextBlock Text="{Binding name}" Grid.Column="5" Margin="5"/>
+                                    <Button Content="View Details" Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Grid.Column="6" Margin="5"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Currency Converter">
+                <local1:CurrencyConverterView />
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

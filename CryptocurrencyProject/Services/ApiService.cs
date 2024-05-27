@@ -1,6 +1,7 @@
 ﻿using CryptocurrencyProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
@@ -15,6 +16,72 @@ namespace CryptocurrencyProject.Services
         public ApiService()
         {
             _httpClient = new HttpClient();
+        }
+        public async Task<List<Currency>> GetCurrenciesAsync()
+        {
+            var url = "https://api.coincap.io/v2/assets";
+
+            try
+            {
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+                var root = JsonSerializer.Deserialize<RootObjectList<Currency>>(json);
+
+                return root?.data ?? new List<Currency>();
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return new List<Currency>();
+        }
+
+        public async Task<decimal> GetRateUsdAsync(string currencyId)
+        {
+            var url = $"https://api.coincap.io/v2/rates/{currencyId}";
+
+            try
+            {
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+                var rateData = JsonSerializer.Deserialize<RateResponse>(json);
+
+                if (rateData?.data?.rateUsd != null)
+                {
+                    if (decimal.TryParse(rateData.data.rateUsd, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal rateUsd))
+                    {
+                        return rateUsd;
+                    }
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine("JSON Error: " + ex.Message);
+            }
+
+            return 0.0m;
+        }
+
+        public async Task<decimal> GetConversionRateAsync(string fromCurrencyId, string toCurrencyId)
+        {
+            decimal fromRateUsd = await GetRateUsdAsync(fromCurrencyId);
+            decimal toRateUsd = await GetRateUsdAsync(toCurrencyId);
+
+            if (fromRateUsd > 0 && toRateUsd > 0)
+            {
+                return fromRateUsd / toRateUsd;
+            }
+
+            return 0.0m;
         }
 
         public async Task<List<Currency>> GetTopNCurrenciesAsync(int limit = 10)
