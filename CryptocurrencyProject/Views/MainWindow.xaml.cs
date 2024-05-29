@@ -9,10 +9,13 @@ namespace CryptocurrencyProject.Views
     {
         private readonly MainViewModel _viewModel;
 
+        private readonly CurrencyConverterView _viewConverter;
+
         public MainWindow()
         {
             InitializeComponent();
             _viewModel = new MainViewModel();
+            _viewConverter = new CurrencyConverterView();
             DataContext = _viewModel;
         }
 
@@ -41,6 +44,20 @@ namespace CryptocurrencyProject.Views
             {
                 var detailsView = new DetailsView(currency);
                 detailsView.Show();
+            }
+        }
+
+        private void SwitchLanguageButton_Click(object sender, RoutedEventArgs e)
+        {
+            Localizer.SetCulture("uk-UA");
+            if (DataContext is MainViewModel mainViewModel)
+            {
+                mainViewModel.UpdateLanguage();
+            }
+
+            if (_viewConverter.DataContext is CurrencyConverterViewModel converterViewModel)
+            {
+                converterViewModel.UpdateLanguage();
             }
         }
     }

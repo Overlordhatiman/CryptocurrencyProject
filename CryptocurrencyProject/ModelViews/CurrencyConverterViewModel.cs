@@ -47,5 +47,22 @@ namespace CryptocurrencyProject.ModelViews
                 OnPropertyChanged(nameof(ConversionResult));
             }
         }
+
+        public string CurrencyConverterLabel => Localizer.GetString("CurrencyConverter");
+        public string FromLabel => Localizer.GetString("FromLabel");
+        public string ToLabel => Localizer.GetString("ToLabel");
+        public string AmountLabel => Localizer.GetString("AmountLabel");
+        public string ConvertButtonLabel => Localizer.GetString("ConvertButtonLabel");
+        public string ResultLabel => Localizer.GetString("ResultLabel");
+
+        public void UpdateLanguage()
+        {
+            OnPropertyChanged(nameof(CurrencyConverterLabel));
+            OnPropertyChanged(nameof(FromLabel));
+            OnPropertyChanged(nameof(ToLabel));
+            OnPropertyChanged(nameof(AmountLabel));
+            OnPropertyChanged(nameof(ConvertButtonLabel));
+            OnPropertyChanged(nameof(ResultLabel));
+        }
     }
 }

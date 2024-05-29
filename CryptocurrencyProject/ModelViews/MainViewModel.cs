@@ -13,6 +13,7 @@ namespace CryptocurrencyProject.ModelViews
         private ObservableCollection<Currency> _data;
         private Currency _selectedCurrency;
         private string _searchQuery;
+        private CurrencyConverterViewModel _converterViewModel;
 
         public string SearchQuery
         {
@@ -33,10 +34,9 @@ namespace CryptocurrencyProject.ModelViews
         }
 
         public ICommand ShowDetailsCommand { get; }
-
         public ICommand SearchCommand { get; }
-
         public ICommand RefreshCommand { get; }
+        public ICommand ChangeLanguageCommand { get; }
 
         public MainViewModel()
         {
@@ -44,6 +44,8 @@ namespace CryptocurrencyProject.ModelViews
             ShowDetailsCommand = new RelayCommand(ShowDetails);
             SearchCommand = new RelayCommand(SearchCurrency);
             RefreshCommand = new RelayCommand(RefreshCurrencies);
+            ChangeLanguageCommand = new RelayCommand(ChangeLanguage);
+            _converterViewModel = new CurrencyConverterViewModel();
             LoadDataAsync();
         }
 
@@ -82,6 +84,38 @@ namespace CryptocurrencyProject.ModelViews
                 var detailsView = new DetailsView(SelectedCurrency);
                 detailsView.Show();
             }
+        }
+
+        private void ChangeLanguage(object obj)
+        {
+            string cultureName = obj as string;
+            if (!string.IsNullOrEmpty(cultureName))
+            {
+                Localizer.SetCulture(cultureName);
+                UpdateLanguage();
+                _converterViewModel.UpdateLanguage();
+            }
+        }
+
+        public string CurrencyList => Localizer.GetString("CurrencyList");
+        public string CurrencyConverter => Localizer.GetString("CurrencyConverter");
+        public string Search => Localizer.GetString("Search");
+        public string Refresh => Localizer.GetString("Refresh");
+        public string IdLabel => Localizer.GetString("Id");
+        public string RankLabel => Localizer.GetString("Rank");
+        public string NameLabel => Localizer.GetString("Name");
+        public string ViewDetailsLabel => Localizer.GetString("ViewDetails");
+
+        public void UpdateLanguage()
+        {
+            OnPropertyChanged(nameof(CurrencyList));
+            OnPropertyChanged(nameof(CurrencyConverter));
+            OnPropertyChanged(nameof(Search));
+            OnPropertyChanged(nameof(Refresh));
+            OnPropertyChanged(nameof(IdLabel));
+            OnPropertyChanged(nameof(RankLabel));
+            OnPropertyChanged(nameof(NameLabel));
+            OnPropertyChanged(nameof(ViewDetailsLabel));
         }
     }
 }

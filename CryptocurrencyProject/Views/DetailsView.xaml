@@ -8,28 +8,28 @@
     <Grid Background="{StaticResource BackgroundBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="10">
-                <TextBlock Text="Currency Details" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="ID:" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding CurrencyDetailsLabel}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding IdLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
                 <TextBlock Text="{Binding SelectedCurrency.id}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="Symbol:" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding SymbolLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
                 <TextBlock Text="{Binding SelectedCurrency.symbol}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="Name:" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding NameLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
                 <TextBlock Text="{Binding SelectedCurrency.name}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="Price (USD):" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding PriceUsdLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
                 <TextBlock Text="{Binding SelectedCurrency.priceUsd}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="Volume (24Hr):" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding VolumeUsdLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
                 <TextBlock Text="{Binding SelectedCurrency.volumeUsd24Hr}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="Change (24Hr %):" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding ChangeLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
                 <TextBlock Text="{Binding SelectedCurrency.changePercent24Hr}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="Explorer:" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding ExplorerLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
                 <TextBlock>
                     <Hyperlink NavigateUri="{Binding SelectedCurrency.explorer}" RequestNavigate="Hyperlink_RequestNavigate">
                         <TextBlock Text="{Binding SelectedCurrency.explorer}" Foreground="{StaticResource ForegroundBrush}"/>
                     </Hyperlink>
                 </TextBlock>
-                <Button Content="Show Candlestick Chart" Command="{Binding ShowCandlestickChartCommand}" Margin="10" Background="{StaticResource ButtonBackgroundBrush}" Foreground="{StaticResource ButtonForegroundBrush}"/>
+                <Button Content="{Binding ShowCandlestickChartLabel}" Command="{Binding ShowCandlestickChartCommand}" Margin="10" Background="{StaticResource ButtonBackgroundBrush}" Foreground="{StaticResource ButtonForegroundBrush}"/>
 
-                <TextBlock Text="Markets" FontWeight="Bold" FontSize="16" Margin="10,0,0,10" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding MarketsLabel}" FontWeight="Bold" FontSize="16" Margin="10,0,0,10" Foreground="{StaticResource ForegroundBrush}"/>
                 <ListBox ItemsSource="{Binding SelectedCurrency.markets}" BorderThickness="1" BorderBrush="Black" Background="{StaticResource BackgroundBrush}" Foreground="{StaticResource ForegroundBrush}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -46,15 +46,15 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="Exchange ID:" Grid.Column="0" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding Path=DataContext.ExchangeIdLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" FontWeight="Bold" Grid.Column="0" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
                                 <TextBlock Text="{Binding exchangeId}" Grid.Column="1" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="Base Symbol:" Grid.Column="2" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding Path=DataContext.BaseSymbolLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" FontWeight="Bold" Grid.Column="2" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
                                 <TextBlock Text="{Binding baseSymbol}" Grid.Column="3" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="Quote Symbol:" Grid.Column="4" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding Path=DataContext.QuoteSymbolLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" FontWeight="Bold" Grid.Column="4" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
                                 <TextBlock Text="{Binding quoteSymbol}" Grid.Column="5" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="Volume (USD):" Grid.Column="6" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding Path=DataContext.VolumeUsdLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" FontWeight="Bold" Grid.Column="6" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
                                 <TextBlock Text="{Binding volumeUsd24Hr}" Grid.Column="7" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="Price (USD):" Grid.Column="8" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding Path=DataContext.PriceUsdLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" FontWeight="Bold" Grid.Column="8" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
                                 <TextBlock Text="{Binding priceUsd}" Grid.Column="9" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
                             </Grid>
                         </DataTemplate>
