@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local1="clr-namespace:CryptocurrencyProject.Views"
+        xmlns:loc="clr-namespace:CryptocurrencyProject.Extensions"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="{DynamicResource BackgroundBrush}">
@@ -11,19 +12,19 @@
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                 <Button Content="Switch to Dark" Click="ToggleThemeButton_Click" Name="ToggleThemeButton" 
                         Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{DynamicResource ButtonForegroundBrush}" Margin="10"/>
-                <Button Content="Switch to UA" Click="SwitchLanguageButton_Click" 
+                <Button Content="Switch to UA" Command="{Binding ChangeLanguageCommand}" CommandParameter="uk-UA" 
                         Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{DynamicResource ButtonForegroundBrush}" Margin="10"/>
                 <Button Content="Switch to English" Command="{Binding ChangeLanguageCommand}" CommandParameter="en-US"
                         Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{DynamicResource ButtonForegroundBrush}" Margin="10"/>
             </StackPanel>
             <TabControl Background="{DynamicResource BackgroundBrush}">
-                <TabItem Header="{Binding CurrencyList}" Background="{DynamicResource BackgroundBrush}" Foreground="{DynamicResource ForegroundBrush}">
+                <TabItem Header="{loc:Localization CurrencyListLabel}" Background="{DynamicResource BackgroundBrush}" Foreground="{DynamicResource ForegroundBrush}">
                     <StackPanel Margin="10" Background="{DynamicResource BackgroundBrush}">
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                             <TextBox Width="200" Margin="0,0,5,0" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"/>
-                            <Button Content="{Binding Search}" Command="{Binding SearchCommand}" Width="75" 
+                            <Button Content="{loc:Localization SearchLabel}" Command="{Binding SearchCommand}" Width="75" 
                                     Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{DynamicResource ButtonForegroundBrush}"/>
-                            <Button Content="{Binding Refresh}" Command="{Binding RefreshCommand}" Width="75" 
+                            <Button Content="{loc:Localization RefreshLabel}" Command="{Binding RefreshCommand}" Width="75" 
                                     Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{DynamicResource ButtonForegroundBrush}"/>
                         </StackPanel>
                         <ListBox ItemsSource="{Binding Data}" BorderThickness="1" BorderBrush="Black" SelectedItem="{Binding SelectedCurrency}" 
@@ -44,16 +45,16 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
-                                        <TextBlock Text="{Binding Path=DataContext.IdLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" 
+                                        <TextBlock Text="{loc:Localization IdLabel}" 
                            Grid.Column="0" FontWeight="Bold" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
                                         <TextBlock Text="{Binding id}" Grid.Column="1" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
-                                        <TextBlock Text="{Binding Path=DataContext.RankLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" 
+                                        <TextBlock Text="{loc:Localization RankLabel}" 
                            FontWeight="Bold" Grid.Column="2" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
                                         <TextBlock Text="{Binding rank}" Grid.Column="3" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
-                                        <TextBlock Text="{Binding Path=DataContext.NameLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" 
+                                        <TextBlock Text="{loc:Localization NameLabel}" 
                            FontWeight="Bold" Grid.Column="4" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
                                         <TextBlock Text="{Binding name}" Grid.Column="5" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
-                                        <Button Content="{Binding Path=DataContext.ViewDetailsLabel, RelativeSource={RelativeSource AncestorType=ListBox}}" Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" 
+                                        <Button Content="{loc:Localization ViewDetailsLabel}" Command="{Binding DataContext.ShowDetailsCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" 
                         Grid.Column="6" Margin="5" Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{DynamicResource ButtonForegroundBrush}"/>
                                     </Grid>
                                 </DataTemplate>
@@ -61,7 +62,7 @@
                         </ListBox>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="{Binding CurrencyConverter}" Background="{DynamicResource BackgroundBrush}" Foreground="{DynamicResource ForegroundBrush}">
+                <TabItem Header="{loc:Localization CurrencyConverterLabel}" Background="{DynamicResource BackgroundBrush}" Foreground="{DynamicResource ForegroundBrush}">
                     <local1:CurrencyConverterView />
                 </TabItem>
             </TabControl>

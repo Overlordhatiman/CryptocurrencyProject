@@ -1,5 +1,7 @@
-﻿using CryptocurrencyProject.Models;
+﻿using CryptocurrencyProject.Extensions;
+using CryptocurrencyProject.Models;
 using CryptocurrencyProject.ModelViews;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,7 +10,6 @@ namespace CryptocurrencyProject.Views
     public partial class MainWindow : Window
     {
         private readonly MainViewModel _viewModel;
-
         private readonly CurrencyConverterView _viewConverter;
 
         public MainWindow()
@@ -46,19 +47,6 @@ namespace CryptocurrencyProject.Views
                 detailsView.Show();
             }
         }
-
-        private void SwitchLanguageButton_Click(object sender, RoutedEventArgs e)
-        {
-            Localizer.SetCulture("uk-UA");
-            if (DataContext is MainViewModel mainViewModel)
-            {
-                mainViewModel.UpdateLanguage();
-            }
-
-            if (_viewConverter.DataContext is CurrencyConverterViewModel converterViewModel)
-            {
-                converterViewModel.UpdateLanguage();
-            }
-        }
     }
+
 }

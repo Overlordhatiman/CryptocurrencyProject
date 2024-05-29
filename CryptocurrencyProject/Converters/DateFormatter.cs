@@ -4,6 +4,9 @@ using System.Windows.Data;
 
 namespace CryptocurrencyProject.Converters
 {
+    /// <summary>
+    /// Needed for LiveChartWPF for correct data
+    /// </summary>
     public class DateFormatter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

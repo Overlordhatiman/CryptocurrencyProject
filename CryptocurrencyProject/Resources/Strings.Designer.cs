@@ -70,11 +70,65 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount:.
+        /// </summary>
+        public static string AmountLabel1 {
+            get {
+                return ResourceManager.GetString("AmountLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount:.
+        /// </summary>
+        public static string AmountLabel2 {
+            get {
+                return ResourceManager.GetString("AmountLabel2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Base Symbol.
         /// </summary>
         public static string BaseSymbolLabel {
             get {
                 return ResourceManager.GetString("BaseSymbolLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base Symbol.
+        /// </summary>
+        public static string BaseSymbolLabel1 {
+            get {
+                return ResourceManager.GetString("BaseSymbolLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base Symbol.
+        /// </summary>
+        public static string BaseSymbolLabel2 {
+            get {
+                return ResourceManager.GetString("BaseSymbolLabel2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change.
+        /// </summary>
+        public static string ChangeLabel {
+            get {
+                return ResourceManager.GetString("ChangeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change.
+        /// </summary>
+        public static string ChangeLabel1 {
+            get {
+                return ResourceManager.GetString("ChangeLabel1", resourceCulture);
             }
         }
         
@@ -88,11 +142,65 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Convert.
+        /// </summary>
+        public static string ConvertButtonLabel1 {
+            get {
+                return ResourceManager.GetString("ConvertButtonLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Convert.
+        /// </summary>
+        public static string ConvertButtonLabel2 {
+            get {
+                return ResourceManager.GetString("ConvertButtonLabel2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Currency Converter.
         /// </summary>
         public static string CurrencyConverter {
             get {
                 return ResourceManager.GetString("CurrencyConverter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency Converter.
+        /// </summary>
+        public static string CurrencyConverter1 {
+            get {
+                return ResourceManager.GetString("CurrencyConverter1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency Converter.
+        /// </summary>
+        public static string CurrencyConverterLabel {
+            get {
+                return ResourceManager.GetString("CurrencyConverterLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency details.
+        /// </summary>
+        public static string CurrencyDetailsLabel {
+            get {
+                return ResourceManager.GetString("CurrencyDetailsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency details.
+        /// </summary>
+        public static string CurrencyDetailsLabel1 {
+            get {
+                return ResourceManager.GetString("CurrencyDetailsLabel1", resourceCulture);
             }
         }
         
@@ -106,11 +214,47 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Currency List.
+        /// </summary>
+        public static string CurrencyList1 {
+            get {
+                return ResourceManager.GetString("CurrencyList1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency List.
+        /// </summary>
+        public static string CurrencyListLabel {
+            get {
+                return ResourceManager.GetString("CurrencyListLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exchange ID.
         /// </summary>
         public static string ExchangeIdLabel {
             get {
                 return ResourceManager.GetString("ExchangeIdLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exchange ID.
+        /// </summary>
+        public static string ExchangeIdLabel1 {
+            get {
+                return ResourceManager.GetString("ExchangeIdLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exchange ID.
+        /// </summary>
+        public static string ExchangeIdLabel2 {
+            get {
+                return ResourceManager.GetString("ExchangeIdLabel2", resourceCulture);
             }
         }
         
@@ -124,11 +268,47 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Explorer.
+        /// </summary>
+        public static string ExplorerLabel1 {
+            get {
+                return ResourceManager.GetString("ExplorerLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explorer.
+        /// </summary>
+        public static string ExplorerLabel2 {
+            get {
+                return ResourceManager.GetString("ExplorerLabel2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From:.
         /// </summary>
         public static string FromLabel {
             get {
                 return ResourceManager.GetString("FromLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From:.
+        /// </summary>
+        public static string FromLabel1 {
+            get {
+                return ResourceManager.GetString("FromLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From:.
+        /// </summary>
+        public static string FromLabel2 {
+            get {
+                return ResourceManager.GetString("FromLabel2", resourceCulture);
             }
         }
         
@@ -142,11 +322,47 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        public static string IdLabel {
+            get {
+                return ResourceManager.GetString("IdLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        public static string IdLabel1 {
+            get {
+                return ResourceManager.GetString("IdLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Markets.
         /// </summary>
         public static string MarketsLabel {
             get {
                 return ResourceManager.GetString("MarketsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Markets.
+        /// </summary>
+        public static string MarketsLabel1 {
+            get {
+                return ResourceManager.GetString("MarketsLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Markets.
+        /// </summary>
+        public static string MarketsLabel2 {
+            get {
+                return ResourceManager.GetString("MarketsLabel2", resourceCulture);
             }
         }
         
@@ -160,11 +376,47 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string NameLabel {
+            get {
+                return ResourceManager.GetString("NameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string NameLabel1 {
+            get {
+                return ResourceManager.GetString("NameLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price (USD).
         /// </summary>
         public static string PriceUsdLabel {
             get {
                 return ResourceManager.GetString("PriceUsdLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price (USD).
+        /// </summary>
+        public static string PriceUsdLabel1 {
+            get {
+                return ResourceManager.GetString("PriceUsdLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price (USD).
+        /// </summary>
+        public static string PriceUsdLabel2 {
+            get {
+                return ResourceManager.GetString("PriceUsdLabel2", resourceCulture);
             }
         }
         
@@ -178,11 +430,47 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quote Symbol.
+        /// </summary>
+        public static string QuoteSymbolLabel1 {
+            get {
+                return ResourceManager.GetString("QuoteSymbolLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quote Symbol.
+        /// </summary>
+        public static string QuoteSymbolLabel2 {
+            get {
+                return ResourceManager.GetString("QuoteSymbolLabel2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rank.
         /// </summary>
         public static string Rank {
             get {
                 return ResourceManager.GetString("Rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rank.
+        /// </summary>
+        public static string RankLabel {
+            get {
+                return ResourceManager.GetString("RankLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rank.
+        /// </summary>
+        public static string RankLabel1 {
+            get {
+                return ResourceManager.GetString("RankLabel1", resourceCulture);
             }
         }
         
@@ -196,11 +484,47 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string RefreshLabel {
+            get {
+                return ResourceManager.GetString("RefreshLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string RefreshLabel1 {
+            get {
+                return ResourceManager.GetString("RefreshLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Result:.
         /// </summary>
         public static string ResultLabel {
             get {
                 return ResourceManager.GetString("ResultLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result:.
+        /// </summary>
+        public static string ResultLabel1 {
+            get {
+                return ResourceManager.GetString("ResultLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result:.
+        /// </summary>
+        public static string ResultLabel2 {
+            get {
+                return ResourceManager.GetString("ResultLabel2", resourceCulture);
             }
         }
         
@@ -214,11 +538,65 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchLabel {
+            get {
+                return ResourceManager.GetString("SearchLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchLabel1 {
+            get {
+                return ResourceManager.GetString("SearchLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show Candlestick Chart.
         /// </summary>
         public static string ShowCandlestickChartLabel {
             get {
                 return ResourceManager.GetString("ShowCandlestickChartLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Candlestick Chart.
+        /// </summary>
+        public static string ShowCandlestickChartLabel1 {
+            get {
+                return ResourceManager.GetString("ShowCandlestickChartLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Candlestick Chart.
+        /// </summary>
+        public static string ShowCandlestickChartLabel2 {
+            get {
+                return ResourceManager.GetString("ShowCandlestickChartLabel2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Symbol.
+        /// </summary>
+        public static string SymbolLabel {
+            get {
+                return ResourceManager.GetString("SymbolLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Symbol.
+        /// </summary>
+        public static string SymbolLabel1 {
+            get {
+                return ResourceManager.GetString("SymbolLabel1", resourceCulture);
             }
         }
         
@@ -232,6 +610,24 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To:.
+        /// </summary>
+        public static string ToLabel1 {
+            get {
+                return ResourceManager.GetString("ToLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To:.
+        /// </summary>
+        public static string ToLabel2 {
+            get {
+                return ResourceManager.GetString("ToLabel2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View Details.
         /// </summary>
         public static string ViewDetails {
@@ -241,11 +637,47 @@ namespace CryptocurrencyProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Details.
+        /// </summary>
+        public static string ViewDetailsLabel {
+            get {
+                return ResourceManager.GetString("ViewDetailsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Details.
+        /// </summary>
+        public static string ViewDetailsLabel1 {
+            get {
+                return ResourceManager.GetString("ViewDetailsLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Volume (USD).
         /// </summary>
         public static string VolumeUsdLabel {
             get {
                 return ResourceManager.GetString("VolumeUsdLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volume (USD).
+        /// </summary>
+        public static string VolumeUsdLabel1 {
+            get {
+                return ResourceManager.GetString("VolumeUsdLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volume (USD).
+        /// </summary>
+        public static string VolumeUsdLabel2 {
+            get {
+                return ResourceManager.GetString("VolumeUsdLabel2", resourceCulture);
             }
         }
     }

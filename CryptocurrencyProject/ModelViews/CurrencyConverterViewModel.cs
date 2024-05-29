@@ -27,6 +27,9 @@ namespace CryptocurrencyProject.ModelViews
             ConvertCommand = new RelayCommand(async (obj) => await ConvertCurrency());
         }
 
+        /// <summary>
+        /// Get currencies from api
+        /// </summary>
         private async void LoadCurrencies()
         {
             var currencies = await _apiService.GetCurrenciesAsync();
@@ -36,6 +39,10 @@ namespace CryptocurrencyProject.ModelViews
             }
         }
 
+        /// <summary>
+        /// Needed to convert data from api to decimal and binding to prop
+        /// </summary>
+        /// <returns></returns>
         private async Task ConvertCurrency()
         {
             if (SelectedFromCurrency != null && SelectedToCurrency != null && decimal.TryParse(Amount, out decimal amount))
@@ -46,23 +53,6 @@ namespace CryptocurrencyProject.ModelViews
                 ConversionResult = $"{Amount} {SelectedFromCurrency.symbol} = {convertedAmount:F2} {SelectedToCurrency.symbol}";
                 OnPropertyChanged(nameof(ConversionResult));
             }
-        }
-
-        public string CurrencyConverterLabel => Localizer.GetString("CurrencyConverter");
-        public string FromLabel => Localizer.GetString("FromLabel");
-        public string ToLabel => Localizer.GetString("ToLabel");
-        public string AmountLabel => Localizer.GetString("AmountLabel");
-        public string ConvertButtonLabel => Localizer.GetString("ConvertButtonLabel");
-        public string ResultLabel => Localizer.GetString("ResultLabel");
-
-        public void UpdateLanguage()
-        {
-            OnPropertyChanged(nameof(CurrencyConverterLabel));
-            OnPropertyChanged(nameof(FromLabel));
-            OnPropertyChanged(nameof(ToLabel));
-            OnPropertyChanged(nameof(AmountLabel));
-            OnPropertyChanged(nameof(ConvertButtonLabel));
-            OnPropertyChanged(nameof(ResultLabel));
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CryptocurrencyProject.Extensions;
 using CryptocurrencyProject.Models;
 using CryptocurrencyProject.Services;
 using CryptocurrencyProject.Views;
@@ -49,12 +51,20 @@ namespace CryptocurrencyProject.ModelViews
             LoadDataAsync();
         }
 
+        /// <summary>
+        /// Refresh UI after serach
+        /// </summary>
+        /// <param name="obj"></param>
         private async void RefreshCurrencies(object obj)
         {
             SearchQuery = string.Empty;
             await LoadDataAsync();
         }
 
+        /// <summary>
+        /// Getting data from api
+        /// </summary>
+        /// <param name="obj">Seraching for currency by id or name</param>
         private async void SearchCurrency(object obj)
         {
             if (!string.IsNullOrEmpty(SearchQuery))
@@ -71,6 +81,10 @@ namespace CryptocurrencyProject.ModelViews
             }
         }
 
+        /// <summary>
+        /// Loading top 10(by default) currencies
+        /// </summary>
+        /// <returns>Collections of data</returns>
         private async Task LoadDataAsync()
         {
             var data = await _apiService.GetTopNCurrenciesAsync();
@@ -86,36 +100,17 @@ namespace CryptocurrencyProject.ModelViews
             }
         }
 
+        /// <summary>
+        /// Method to change localization
+        /// </summary>
+        /// <param name="obj">String of language</param>
         private void ChangeLanguage(object obj)
         {
             string cultureName = obj as string;
             if (!string.IsNullOrEmpty(cultureName))
             {
-                Localizer.SetCulture(cultureName);
-                UpdateLanguage();
-                _converterViewModel.UpdateLanguage();
+                TranslationSource.Instance.CurrentCulture = new CultureInfo(cultureName);
             }
-        }
-
-        public string CurrencyList => Localizer.GetString("CurrencyList");
-        public string CurrencyConverter => Localizer.GetString("CurrencyConverter");
-        public string Search => Localizer.GetString("Search");
-        public string Refresh => Localizer.GetString("Refresh");
-        public string IdLabel => Localizer.GetString("Id");
-        public string RankLabel => Localizer.GetString("Rank");
-        public string NameLabel => Localizer.GetString("Name");
-        public string ViewDetailsLabel => Localizer.GetString("ViewDetails");
-
-        public void UpdateLanguage()
-        {
-            OnPropertyChanged(nameof(CurrencyList));
-            OnPropertyChanged(nameof(CurrencyConverter));
-            OnPropertyChanged(nameof(Search));
-            OnPropertyChanged(nameof(Refresh));
-            OnPropertyChanged(nameof(IdLabel));
-            OnPropertyChanged(nameof(RankLabel));
-            OnPropertyChanged(nameof(NameLabel));
-            OnPropertyChanged(nameof(ViewDetailsLabel));
         }
     }
 }

@@ -17,6 +17,11 @@ namespace CryptocurrencyProject.Services
         {
             _httpClient = new HttpClient();
         }
+
+        /// <summary>
+        /// Getting list of currencies from coincap
+        /// </summary>
+        /// <returns>List of currencies</returns>
         public async Task<List<Currency>> GetCurrenciesAsync()
         {
             var url = "https://api.coincap.io/v2/assets";
@@ -39,6 +44,11 @@ namespace CryptocurrencyProject.Services
             return new List<Currency>();
         }
 
+        /// <summary>
+        /// Getting data with rates in USD
+        /// </summary>
+        /// <param name="currencyId">Name or id of a currency</param>
+        /// <returns>Rate in USD as decimal if data is null returns 0.0</returns>
         public async Task<decimal> GetRateUsdAsync(string currencyId)
         {
             var url = $"https://api.coincap.io/v2/rates/{currencyId}";
@@ -71,6 +81,12 @@ namespace CryptocurrencyProject.Services
             return 0.0m;
         }
 
+        /// <summary>
+        /// Method to calculate from one currency to another
+        /// </summary>
+        /// <param name="fromCurrencyId">Id or name first currency which we will convert</param>
+        /// <param name="toCurrencyId">Id or name in which currency we will convert</param>
+        /// <returns>Decimal how much we cna get currencies</returns>
         public async Task<decimal> GetConversionRateAsync(string fromCurrencyId, string toCurrencyId)
         {
             decimal fromRateUsd = await GetRateUsdAsync(fromCurrencyId);
@@ -84,6 +100,11 @@ namespace CryptocurrencyProject.Services
             return 0.0m;
         }
 
+        /// <summary>
+        /// Getting top currencies from coincap api
+        /// </summary>
+        /// <param name="limit">Number of currencies(default 10)</param>
+        /// <returns>List of currencies</returns>
         public async Task<List<Currency>> GetTopNCurrenciesAsync(int limit = 10)
         {
             var url = $"https://api.coincap.io/v2/assets?limit={limit}";
@@ -106,6 +127,11 @@ namespace CryptocurrencyProject.Services
             return null;
         }
 
+        /// <summary>
+        /// Getting data from api about currency
+        /// </summary>
+        /// <param name="currencyId">Id or name of currency</param>
+        /// <returns>Single currency</returns>
         public async Task<Currency> GetCurrencyDetailsAsync(string currencyId)
         {
             var url = $"https://api.coincap.io/v2/assets/{currencyId}";
@@ -141,6 +167,11 @@ namespace CryptocurrencyProject.Services
             return null;
         }
 
+        /// <summary>
+        /// Seraching currency in coincap
+        /// </summary>
+        /// <param name="partialName">Searching closest id or name of currency in coincap api</param>
+        /// <returns>Single currency</returns>
         public async Task<Currency> SearchCurrencyByNameAsync(string partialName)
         {
             var url = "https://api.coincap.io/v2/assets";
@@ -171,6 +202,14 @@ namespace CryptocurrencyProject.Services
             }
         }
 
+        /// <summary>
+        /// Getting data(as object of OHLC)
+        /// </summary>
+        /// <param name="exchange">Exchange of currency</param>
+        /// <param name="interval">Interval(like 1d,1h maximum 1m etc)</param>
+        /// <param name="baseId">Based id of currency</param>
+        /// <param name="quoteId">Quote id of currency</param>
+        /// <returns>List of OHLC objects</returns>
         public async Task<List<OhlcPoint>> GetCandlestickDataAsync(string exchange, string interval, string baseId, string quoteId)
         {
             var url = $"https://api.coincap.io/v2/candles?exchange={exchange}&interval={interval}&baseId={baseId}&quoteId={quoteId}";

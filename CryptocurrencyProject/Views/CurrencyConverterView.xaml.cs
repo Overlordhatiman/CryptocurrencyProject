@@ -10,15 +10,6 @@ namespace CryptocurrencyProject.Views
         {
             InitializeComponent();
             DataContext = new CurrencyConverterViewModel();
-            UpdateLanguage();
-        }
-
-        public void UpdateLanguage()
-        {
-            if (DataContext is CurrencyConverterViewModel viewModel)
-            {
-                viewModel.UpdateLanguage();
-            }
         }
     }
 }

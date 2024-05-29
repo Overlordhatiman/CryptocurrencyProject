@@ -4,25 +4,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:CryptocurrencyProject.Views"
+             xmlns:loc="clr-namespace:CryptocurrencyProject.Extensions"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="400">
     <Grid Background="{DynamicResource BackgroundBrush}">
         <StackPanel Margin="10">
-            <TextBlock Text="{Binding CurrencyConverterLabel}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" Foreground="{DynamicResource ForegroundBrush}"/>
+            <Label Content="{loc:Localization CurrencyConverterLabel}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" Foreground="{DynamicResource ForegroundBrush}"/>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="{Binding FromLabel}" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization FromLabel}" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundBrush}"/>
                 <ComboBox Width="150" ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedFromCurrency}" DisplayMemberPath="name"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="{Binding ToLabel}" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization ToLabel}" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundBrush}"/>
                 <ComboBox Width="150" ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedToCurrency}" DisplayMemberPath="name"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="{Binding AmountLabel}" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization AmountLabel}" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource ForegroundBrush}"/>
                 <TextBox Width="100" Text="{Binding Amount}"/>
             </StackPanel>
-            <Button Content="{Binding ConvertButtonLabel}" Command="{Binding ConvertCommand}" Width="75" Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{StaticResource ButtonForegroundBrush}"/>
-            <TextBlock Text="{Binding ResultLabel}" FontWeight="Bold" Margin="0,10,0,0" Foreground="{DynamicResource ForegroundBrush}"/>
+            <Button Content="{loc:Localization ConvertButtonLabel}" Command="{Binding ConvertCommand}" Width="75" Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{StaticResource ButtonForegroundBrush}"/>
+            <TextBlock Text="{loc:Localization ResultLabel}" FontWeight="Bold" Margin="0,10,0,0" Foreground="{DynamicResource ForegroundBrush}"/>
             <TextBlock Text="{Binding ConversionResult}" Margin="0,0,0,5" Foreground="{DynamicResource ForegroundBrush}"/>
         </StackPanel>
     </Grid>

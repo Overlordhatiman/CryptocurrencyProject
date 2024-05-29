@@ -129,13 +129,13 @@
   <data name="ConvertButtonLabel" xml:space="preserve">
     <value>Convert</value>
   </data>
-  <data name="CurrencyConverter" xml:space="preserve">
+  <data name="CurrencyConverterLabel" xml:space="preserve">
     <value>Currency Converter</value>
   </data>
   <data name="CurrencyDetailsLabel" xml:space="preserve">
     <value>Currency details</value>
   </data>
-  <data name="CurrencyList" xml:space="preserve">
+  <data name="CurrencyListLabel" xml:space="preserve">
     <value>Currency List</value>
   </data>
   <data name="ExchangeIdLabel" xml:space="preserve">
@@ -147,7 +147,7 @@
   <data name="FromLabel" xml:space="preserve">
     <value>From:</value>
   </data>
-  <data name="Id" xml:space="preserve">
+  <data name="IdLabel" xml:space="preserve">
     <value>Id</value>
   </data>
   <data name="MarketsLabel" xml:space="preserve">
@@ -162,16 +162,16 @@
   <data name="QuoteSymbolLabel" xml:space="preserve">
     <value>Quote Symbol</value>
   </data>
-  <data name="Rank" xml:space="preserve">
+  <data name="RankLabel" xml:space="preserve">
     <value>Rank</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
+  <data name="RefreshLabel" xml:space="preserve">
     <value>Refresh</value>
   </data>
   <data name="ResultLabel" xml:space="preserve">
     <value>Result:</value>
   </data>
-  <data name="Search" xml:space="preserve">
+  <data name="SearchLabel" xml:space="preserve">
     <value>Search</value>
   </data>
   <data name="ShowCandlestickChartLabel" xml:space="preserve">
@@ -183,7 +183,7 @@
   <data name="ToLabel" xml:space="preserve">
     <value>To:</value>
   </data>
-  <data name="ViewDetails" xml:space="preserve">
+  <data name="ViewDetailsLabel" xml:space="preserve">
     <value>View Details</value>
   </data>
   <data name="VolumeUsdLabel" xml:space="preserve">

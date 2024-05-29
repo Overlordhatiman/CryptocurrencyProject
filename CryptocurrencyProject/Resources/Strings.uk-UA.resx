@@ -129,13 +129,13 @@
   <data name="ConvertButtonLabel" xml:space="preserve">
     <value>Конвертувати</value>
   </data>
-  <data name="CurrencyConverter" xml:space="preserve">
+  <data name="CurrencyConverterLabel" xml:space="preserve">
     <value>Конвертер валют</value>
   </data>
   <data name="CurrencyDetailsLabel" xml:space="preserve">
     <value>Деталі валюти</value>
   </data>
-  <data name="CurrencyList" xml:space="preserve">
+  <data name="CurrencyListLabel" xml:space="preserve">
     <value>Список валют</value>
   </data>
   <data name="ExchangeIdLabel" xml:space="preserve">
@@ -147,13 +147,13 @@
   <data name="FromLabel" xml:space="preserve">
     <value>Від:</value>
   </data>
-  <data name="Id" xml:space="preserve">
+  <data name="IdLabel" xml:space="preserve">
     <value>Ідентифікатор</value>
   </data>
   <data name="MarketsLabel" xml:space="preserve">
     <value>Ринки</value>
   </data>
-  <data name="Name" xml:space="preserve">
+  <data name="NameLabel" xml:space="preserve">
     <value>Ім'я</value>
   </data>
   <data name="PriceUsdLabel" xml:space="preserve">
@@ -162,16 +162,16 @@
   <data name="QuoteSymbolLabel" xml:space="preserve">
     <value>Позначка котирування</value>
   </data>
-  <data name="Rank" xml:space="preserve">
+  <data name="RankLabel" xml:space="preserve">
     <value>Ранг</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
+  <data name="RefreshLabel" xml:space="preserve">
     <value>Оновити</value>
   </data>
   <data name="ResultLabel" xml:space="preserve">
     <value>Результат:</value>
   </data>
-  <data name="Search" xml:space="preserve">
+  <data name="SearchLabel" xml:space="preserve">
     <value>Пошук</value>
   </data>
   <data name="ShowCandlestickChartLabel" xml:space="preserve">
@@ -183,7 +183,7 @@
   <data name="ToLabel" xml:space="preserve">
     <value>До:</value>
   </data>
-  <data name="ViewDetails" xml:space="preserve">
+  <data name="ViewDetailsLabel" xml:space="preserve">
     <value>Показати деталі</value>
   </data>
   <data name="VolumeUsdLabel" xml:space="preserve">
