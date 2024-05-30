@@ -6,32 +6,32 @@
         xmlns:loc="clr-namespace:CryptocurrencyProject.Extensions"
         mc:Ignorable="d"
         Title="DetailsView" Height="450" Width="1000">
-    <Grid Background="{StaticResource BackgroundBrush}">
+    <Grid Background="{DynamicResource BackgroundBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="10">
-                <TextBlock Text="{loc:Localization CurrencyDetailsLabel}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{loc:Localization IdLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{Binding SelectedCurrency.id}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{loc:Localization SymbolLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{Binding SelectedCurrency.symbol}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{loc:Localization NameLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{Binding SelectedCurrency.name}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{loc:Localization PriceUsdLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{Binding SelectedCurrency.priceUsd}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{loc:Localization VolumeUsdLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{Binding SelectedCurrency.volumeUsd24Hr}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{loc:Localization ChangeLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{Binding SelectedCurrency.changePercent24Hr}" Margin="0,0,0,5" Foreground="{StaticResource ForegroundBrush}"/>
-                <TextBlock Text="{loc:Localization ExplorerLabel}" FontWeight="Bold" Foreground="{StaticResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization CurrencyDetailsLabel}" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization IdLabel}" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding SelectedCurrency.id}" Margin="0,0,0,5" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization SymbolLabel}" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding SelectedCurrency.symbol}" Margin="0,0,0,5" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization NameLabel}" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding SelectedCurrency.name}" Margin="0,0,0,5" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization PriceUsdLabel}" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding SelectedCurrency.priceUsd}" Margin="0,0,0,5" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization VolumeUsdLabel}" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding SelectedCurrency.volumeUsd24Hr}" Margin="0,0,0,5" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization ChangeLabel}" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{Binding SelectedCurrency.changePercent24Hr}" Margin="0,0,0,5" Foreground="{DynamicResource ForegroundBrush}"/>
+                <TextBlock Text="{loc:Localization ExplorerLabel}" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}"/>
                 <TextBlock>
                     <Hyperlink NavigateUri="{Binding SelectedCurrency.explorer}" RequestNavigate="Hyperlink_RequestNavigate">
-                        <TextBlock Text="{Binding SelectedCurrency.explorer}" Foreground="{StaticResource ForegroundBrush}"/>
+                        <TextBlock Text="{Binding SelectedCurrency.explorer}" Foreground="{DynamicResource ForegroundBrush}"/>
                     </Hyperlink>
                 </TextBlock>
-                <Button Content="{loc:Localization ShowCandlestickChartLabel}" Command="{Binding ShowCandlestickChartCommand}" Margin="10" Background="{StaticResource ButtonBackgroundBrush}" Foreground="{StaticResource ButtonForegroundBrush}"/>
+                <Button Content="{loc:Localization ShowCandlestickChartLabel}" Command="{Binding ShowCandlestickChartCommand}" Margin="10" Background="{DynamicResource ButtonBackgroundBrush}" Foreground="{DynamicResource ButtonForegroundBrush}"/>
 
-                <TextBlock Text="{loc:Localization MarketsLabel}" FontWeight="Bold" FontSize="16" Margin="10,0,0,10" Foreground="{StaticResource ForegroundBrush}"/>
-                <ListBox ItemsSource="{Binding SelectedCurrency.markets}" BorderThickness="1" BorderBrush="Black" Background="{StaticResource BackgroundBrush}" Foreground="{StaticResource ForegroundBrush}">
+                <TextBlock Text="{loc:Localization MarketsLabel}" FontWeight="Bold" FontSize="16" Margin="10,0,0,10" Foreground="{DynamicResource ForegroundBrush}"/>
+                <ListBox ItemsSource="{Binding SelectedCurrency.markets}" BorderThickness="1" BorderBrush="Black" Background="{DynamicResource BackgroundBrush}" Foreground="{DynamicResource ForegroundBrush}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="5">
@@ -47,16 +47,16 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="{loc:Localization ExchangeIdLabel}" FontWeight="Bold" Grid.Column="0" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{Binding exchangeId}" Grid.Column="1" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{loc:Localization BaseSymbolLabel}" FontWeight="Bold" Grid.Column="2" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{Binding baseSymbol}" Grid.Column="3" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{loc:Localization QuoteSymbolLabel}" FontWeight="Bold" Grid.Column="4" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{Binding quoteSymbol}" Grid.Column="5" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{loc:Localization VolumeUsdLabel}" FontWeight="Bold" Grid.Column="6" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{Binding volumeUsd24Hr}" Grid.Column="7" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{loc:Localization PriceUsdLabel}" FontWeight="Bold" Grid.Column="8" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
-                                <TextBlock Text="{Binding priceUsd}" Grid.Column="9" Margin="5" Foreground="{StaticResource ForegroundBrush}"/>
+                                <TextBlock Text="{loc:Localization ExchangeIdLabel}" FontWeight="Bold" Grid.Column="0" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding exchangeId}" Grid.Column="1" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{loc:Localization BaseSymbolLabel}" FontWeight="Bold" Grid.Column="2" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding baseSymbol}" Grid.Column="3" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{loc:Localization QuoteSymbolLabel}" FontWeight="Bold" Grid.Column="4" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding quoteSymbol}" Grid.Column="5" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{loc:Localization VolumeUsdLabel}" FontWeight="Bold" Grid.Column="6" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding volumeUsd24Hr}" Grid.Column="7" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{loc:Localization PriceUsdLabel}" FontWeight="Bold" Grid.Column="8" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
+                                <TextBlock Text="{Binding priceUsd}" Grid.Column="9" Margin="5" Foreground="{DynamicResource ForegroundBrush}"/>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
